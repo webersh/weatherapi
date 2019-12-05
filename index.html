@@ -56,7 +56,7 @@
     	}
     	
 		
-		let query = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=cd1ab26c9535b6585ff4dee37b9692fa&units=" + units;
+		let query = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=cd1ab26c9535b6585ff4dee37b9692fa&units=" + units;
         console.log("Query is :" + query)
 
         $.getJSON(query,function(json){
@@ -70,7 +70,7 @@
     	success: function(result){
     		console.log("working");
     		let imgid = result.weather[0].icon;
-    		let imgurl = 'http://openweathermap.org/img/w/' + imgid + '.png';
+    		let imgurl = 'https://openweathermap.org/img/w/' + imgid + '.png';
     		console.log(imgurl);
 
     		if ("main" in result){
