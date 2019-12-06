@@ -61,32 +61,44 @@
 
         $.getJSON(query,function(json){
             console.log(JSON.stringify(json));
-        	$("#forecast").toggle();
-
-    })
-      
-        $.ajax({
-    	url: query,
-    	success: function(result){
-    		console.log("working");
-    		let imgid = result.weather[0].icon;
+        	$("#forecast").show();
+        	let imgid = json.weather[0].icon;
     		let imgurl = 'https://openweathermap.org/img/w/' + imgid + '.png';
     		console.log(imgurl);
-
-    		if ("main" in result){
-    			$("#loc").html(result.name);
-    			$("#temp").html(result.main.temp);
-    			$("#high").html(result.main.temp_max);
-    			$("#low").html(result.main.temp_min);
+    		if ("main" in json){
+    			$("#loc").html(json.name);
+    			$("#temp").html(json.main.temp);
+    			$("#high").html(json.main.temp_max);
+    			$("#low").html(json.main.temp_min);
     			$('#tempImg').attr("src", imgurl);
     		}
 
-    	}
     })
     }
 
+      
+       // $.ajax({
+    	//url: query,
+    	//success: function(result){
+    		//console.log("working");
+    		//let imgid = result.weather[0].icon;
+    		//let imgurl = 'https://openweathermap.org/img/w/' + imgid + '.png';
+    		//console.log(imgurl);
 
-    </script>
+    		//if ("main" in result){
+    			//$("#loc").html(result.name);
+    			//$("#temp").html(result.main.temp);
+    			//$("#high").html(result.main.temp_max);
+    			//$("#low").html(result.main.temp_min);
+    			//$('#tempImg').attr("src", imgurl);
+    		//}
+
+    	//}
+    //})
+   // } 
+
+
+</script>
 </head>
 <body>
 	<!-- DO NOT CHANGE ANY CODE IN THE BODY OF THIS FILE. -->
